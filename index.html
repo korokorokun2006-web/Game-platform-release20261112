@@ -3,93 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>OMNI-VERSE 10M | Next-Gen Procedural Arcade</title>
+    <title>OMNI-VERSE 10M | Premium Procedural Multiverse</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
         :root {
             --accent: #6366f1;
-            --accent-glow: rgba(99, 102, 241, 0.4);
-            --bg-deep: #020617;
-            --panel-bg: rgba(15, 23, 42, 0.75);
-            --panel-border: rgba(255, 255, 255, 0.1);
+            --accent-glow: rgba(99, 102, 241, 0.35);
+            --bg-deep: #030712;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-deep);
             color: #f8fafc;
-            transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             overflow-x: hidden;
+            letter-spacing: -0.01em;
         }
 
         .mono { font-family: 'JetBrains Mono', monospace; }
-        .display-font { font-family: 'Space Grotesk', sans-serif; }
+        .outfit { font-family: 'Outfit', sans-serif; }
 
-        /* Steam/Roblox/Flow-grade Glassmorphism & Lighting */
-        .omni-glass {
-            background: var(--panel-bg);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--panel-border);
-            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px -10px var(--accent-glow);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Google Flow / Apple Grade Multi-Layered Glassmorphism */
+        .flow-glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(10, 15, 30, 0.65);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 30px 100px -20px rgba(0, 0, 0, 0.9),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+                0 0 50px -10px var(--accent-glow);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .omni-btn {
-            background-color: var(--accent);
-            box-shadow: 0 0 30px -5px var(--accent-glow);
+        .flow-glass-sub {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .flow-btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(99, 102, 241, 0.8) 100%);
+            box-shadow: 0 10px 30px -5px var(--accent-glow), inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .omni-btn:hover {
-            filter: brightness(1.15);
+        .flow-btn-primary:hover {
+            filter: brightness(1.12);
             transform: translateY(-2px);
-            box-shadow: 0 0 40px 0 var(--accent-glow);
+            box-shadow: 0 15px 40px -5px var(--accent-glow), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
         }
 
-        #ambient-glow {
+        /* Ambient Dynamic Mesh */
+        #ambient-mesh {
             position: fixed;
             inset: 0;
             z-index: -1;
-            background: radial-gradient(circle at 15% 15%, var(--accent-glow), transparent 50%),
-                        radial-gradient(circle at 85% 85%, rgba(14, 165, 233, 0.15), transparent 55%);
-            transition: background 0.8s ease;
+            background: 
+                radial-gradient(circle at 10% 10%, var(--accent-glow), transparent 45%),
+                radial-gradient(circle at 90% 90%, rgba(14, 165, 233, 0.12), transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08), transparent 60%);
+            transition: background 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        ::-webkit-scrollbar { width: 6px; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 999px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-white/20">
+<body class="min-h-screen flex flex-col justify-between selection:bg-indigo-500/30 selection:text-white">
 
-    <div id="ambient-glow"></div>
+    <div id="ambient-mesh"></div>
 
-    <!-- Header -->
-    <header class="omni-glass sticky top-0 z-40 px-4 md:px-8 py-3.5 flex items-center justify-between border-b border-white/10">
+    <!-- Header (Google Flow Floating Nav) -->
+    <header class="flow-glass sticky top-4 z-50 mx-4 md:mx-8 px-5 py-3.5 rounded-3xl flex items-center justify-between">
         <div class="flex items-center space-x-3.5">
-            <div id="logo-box" class="w-10 h-10 rounded-2xl flex items-center justify-center omni-btn text-white font-black shadow-lg">
+            <div id="logo-box" class="w-11 h-11 rounded-2xl flex items-center justify-center flow-btn-primary text-white shadow-xl">
                 <i data-lucide="compass" class="w-5 h-5"></i>
             </div>
             <div>
                 <div class="flex items-center space-x-2">
-                    <span class="display-font font-bold text-base md:text-lg tracking-wider">OMNI-VERSE</span>
-                    <span class="text-[10px] mono px-2.5 py-0.5 rounded-full bg-white/10 border border-white/10 text-slate-300">10M UNIVERSES</span>
+                    <span class="outfit font-extrabold text-base md:text-lg tracking-tight text-white">OMNI-VERSE</span>
+                    <span class="text-[10px] mono px-2.5 py-0.5 rounded-full bg-white/10 border border-white/10 text-indigo-300 font-medium">10M UNIVERSE ENGINE</span>
                 </div>
-                <p id="universe-subtitle" class="text-xs text-slate-400 truncate max-w-[220px] sm:max-w-md">Quantum Procedural Engine</p>
+                <p id="universe-subtitle" class="text-xs text-slate-400 truncate max-w-[200px] sm:max-w-md font-medium">Quantum Procedural Core</p>
             </div>
         </div>
 
         <div class="flex items-center space-x-3">
-            <button onclick="toggleAudio()" id="audio-btn" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 transition" title="サウンド切替">
+            <button onclick="toggleAudio()" id="audio-btn" class="p-2.5 rounded-2xl flow-glass-sub hover:bg-white/10 text-slate-300 transition" title="サウンド切替">
                 <i data-lucide="volume-2" id="audio-icon" class="w-4 h-4"></i>
             </button>
 
-            <!-- PayPal Coffee Button (1箇所・ゲームの邪魔にならず一目でわかる位置) -->
+            <!-- Premium PayPal Coffee Button -->
             <a href="https://www.paypal.com/ncp/payment/W667YSCR59YEN" target="_blank" rel="noopener noreferrer"
-               class="flex items-center space-x-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 hover:from-amber-500/30 hover:to-orange-500/30 text-amber-300 border border-amber-400/40 px-3.5 py-2 rounded-xl text-xs font-bold transition-all shadow-lg shadow-amber-950/30">
+               class="flex items-center space-x-2 bg-gradient-to-r from-amber-500/15 via-orange-500/15 to-amber-500/15 hover:from-amber-500/25 hover:to-orange-500/25 text-amber-300 border border-amber-400/30 px-4 py-2.5 rounded-2xl text-xs font-bold transition-all shadow-lg shadow-amber-950/40 backdrop-blur-md">
                 <i data-lucide="coffee" class="w-4 h-4 text-amber-400"></i>
                 <span class="hidden sm:inline">開発者にコーヒーをプレゼント</span>
             </a>
@@ -101,41 +115,41 @@
 
         <!-- Game Viewport (8 Cols) -->
         <div class="lg:col-span-8 flex flex-col space-y-4">
-            <div class="omni-glass rounded-3xl p-3 md:p-5 relative overflow-hidden flex flex-col items-center justify-center">
+            <div class="flow-glass rounded-[32px] p-4 md:p-6 relative overflow-hidden flex flex-col items-center justify-center">
                 
                 <!-- HUD -->
-                <div class="w-full flex flex-wrap items-center justify-between gap-2 px-2 pb-3 text-xs">
+                <div class="w-full flex flex-wrap items-center justify-between gap-2 px-2 pb-3.5 text-xs">
                     <div class="flex items-center space-x-3">
-                        <span class="mono px-3 py-1 rounded-xl bg-black/50 border border-white/10 font-bold text-slate-200" id="hud-id">#00,000,001</span>
-                        <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 font-semibold display-font" id="hud-genre">GENRE</span>
+                        <span class="mono px-3.5 py-1.5 rounded-xl flow-glass-sub font-bold text-slate-200 shadow-inner" id="hud-id">#00,000,001</span>
+                        <span class="px-3.5 py-1.5 rounded-xl flow-glass-sub font-semibold outfit text-slate-300" id="hud-genre">GENRE</span>
                     </div>
-                    <div class="flex items-center space-x-4 mono">
+                    <div class="flex items-center space-x-5 mono">
                         <div class="text-slate-400">BEST: <span id="hud-best" class="text-white font-bold">0</span></div>
                         <div class="text-sm">SCORE: <span id="hud-score" class="font-extrabold text-white">0</span></div>
                     </div>
                 </div>
 
                 <!-- Canvas Viewport -->
-                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 bg-slate-950 shadow-2xl">
+                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 bg-slate-950/80 shadow-2xl">
                     <canvas id="gameCanvas" width="900" height="560" class="w-full h-full block cursor-pointer touch-none"></canvas>
 
                     <!-- Overlay Screen -->
-                    <div id="overlay-screen" class="absolute inset-0 bg-slate-950/85 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center transition-opacity duration-500">
-                        <div id="overlay-badge" class="mono text-[11px] uppercase tracking-widest px-3.5 py-1 rounded-full bg-white/10 border border-white/20 mb-3 text-indigo-400">
+                    <div id="overlay-screen" class="absolute inset-0 bg-slate-950/85 backdrop-blur-2xl flex flex-col items-center justify-center p-6 text-center transition-opacity duration-500">
+                        <div id="overlay-badge" class="mono text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full flow-glass-sub mb-4 text-indigo-400 font-semibold">
                             UNIVERSE SEED #1
                         </div>
-                        <h1 id="overlay-title" class="display-font text-3xl md:text-5xl font-extrabold tracking-tight mb-3 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        <h1 id="overlay-title" class="outfit text-3xl md:text-5xl font-extrabold tracking-tight mb-3 bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
                             CYBER ODYSSEY
                         </h1>
-                        <p id="overlay-desc" class="text-xs md:text-sm text-slate-300 max-w-lg mb-8 leading-relaxed">
-                            この世界の物理法則とルール説明
+                        <p id="overlay-desc" class="text-xs md:text-sm text-slate-300 max-w-lg mb-8 leading-relaxed font-medium">
+                            物理法則とルール説明
                         </p>
                         <div class="flex flex-wrap items-center justify-center gap-3">
-                            <button onclick="startGame()" class="omni-btn text-white font-extrabold px-8 py-3.5 rounded-2xl text-sm flex items-center space-x-2.5 cursor-pointer">
+                            <button onclick="startGame()" class="flow-btn-primary text-white font-extrabold px-8 py-4 rounded-2xl text-sm flex items-center space-x-2.5 cursor-pointer">
                                 <i data-lucide="play" class="w-4 h-4 fill-current"></i>
-                                <span id="start-btn-text">この宇宙を体験する</span>
+                                <span id="start-btn-text">この宇宙にログイン</span>
                             </button>
-                            <button onclick="jumpRandomUniverse()" class="bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold px-6 py-3.5 rounded-2xl text-sm flex items-center space-x-2 transition cursor-pointer">
+                            <button onclick="jumpRandomUniverse()" class="flow-glass-sub hover:bg-white/15 text-white font-semibold px-6 py-4 rounded-2xl text-sm flex items-center space-x-2 transition cursor-pointer">
                                 <i data-lucide="sparkles" class="w-4 h-4"></i>
                                 <span>別の宇宙へジャンプ</span>
                             </button>
@@ -144,12 +158,12 @@
                 </div>
 
                 <!-- Footer Info -->
-                <div class="w-full pt-3 px-2 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+                <div class="w-full pt-4 px-2 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
                     <div class="flex items-center space-x-2" id="control-hint">
                         <i data-lucide="mouse-pointer-click" class="w-4 h-4 text-slate-300"></i>
-                        <span>操作方法: クリック / スペースキー</span>
+                        <span>操作: クリック / スペースキー</span>
                     </div>
-                    <button onclick="shareUniverse()" class="hover:text-white flex items-center space-x-1 transition" id="share-label">
+                    <button onclick="shareUniverse()" class="hover:text-white flex items-center space-x-1.5 transition font-medium" id="share-label">
                         <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
                         <span>この宇宙の個別URLをコピー</span>
                     </button>
@@ -161,90 +175,88 @@
         <div class="lg:col-span-4 flex flex-col space-y-4">
             
             <!-- Universe Navigator -->
-            <div class="omni-glass rounded-3xl p-5 space-y-4">
+            <div class="flow-glass rounded-[32px] p-6 space-y-4">
                 <div class="flex items-center justify-between">
-                    <h2 class="display-font font-bold text-sm flex items-center space-x-2">
-                        <i data-lucide="compass" class="w-4 h-4"></i>
-                        <span>10,000,000 宇宙セレクター</span>
+                    <h2 class="outfit font-bold text-sm flex items-center space-x-2 text-slate-200">
+                        <i data-lucide="compass" class="w-4 h-4 text-indigo-400"></i>
+                        <span>10M 宇宙セレクター</span>
                     </h2>
                     <span class="mono text-[11px] text-slate-400">1 〜 10,000,000</span>
                 </div>
 
                 <div class="flex space-x-2">
                     <input type="number" id="seed-input" min="1" max="10000000" value="1"
-                           class="mono bg-black/50 border border-white/15 rounded-2xl px-4 py-3 text-sm w-full focus:outline-none focus:border-indigo-500 text-white font-bold"
+                           class="mono bg-black/40 border border-white/15 rounded-2xl px-4 py-3 text-sm w-full focus:outline-none focus:border-indigo-500 text-white font-bold shadow-inner"
                            placeholder="宇宙IDを入力">
-                    <button onclick="loadFromInput()" class="omni-btn text-white px-5 py-3 rounded-2xl text-xs font-extrabold transition shrink-0">
+                    <button onclick="loadFromInput()" class="flow-btn-primary text-white px-5 py-3 rounded-2xl text-xs font-extrabold transition shrink-0">
                         ワープ
                     </button>
                 </div>
 
                 <div class="grid grid-cols-2 gap-2">
-                    <button onclick="stepUniverse(-1)" class="bg-white/5 hover:bg-white/10 border border-white/10 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center space-x-1 transition">
+                    <button onclick="stepUniverse(-1)" class="flow-glass-sub hover:bg-white/10 py-3 rounded-2xl text-xs font-semibold flex items-center justify-center space-x-1 transition text-slate-300">
                         <i data-lucide="chevron-left" class="w-4 h-4"></i>
                         <span>前の宇宙</span>
                     </button>
-                    <button onclick="stepUniverse(1)" class="bg-white/5 hover:bg-white/10 border border-white/10 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center space-x-1 transition">
+                    <button onclick="stepUniverse(1)" class="flow-glass-sub hover:bg-white/10 py-3 rounded-2xl text-xs font-semibold flex items-center justify-center space-x-1 transition text-slate-300">
                         <span>次の宇宙</span>
                         <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </button>
                 </div>
 
-                <button onclick="jumpRandomUniverse()" class="w-full omni-btn text-white font-extrabold py-3.5 rounded-2xl text-xs flex items-center justify-center space-x-2 cursor-pointer">
+                <button onclick="jumpRandomUniverse()" class="w-full flow-btn-primary text-white font-extrabold py-3.5 rounded-2xl text-xs flex items-center justify-center space-x-2 cursor-pointer">
                     <i data-lucide="dices" class="w-4 h-4"></i>
                     <span>完全ランダムな宇宙を探索</span>
                 </button>
             </div>
 
             <!-- Universe DNA Spec -->
-            <div class="omni-glass rounded-3xl p-5 space-y-3">
-                <h3 class="display-font font-bold text-xs uppercase tracking-wider text-slate-400 flex items-center space-x-2">
-                    <i data-lucide="cpu" class="w-4 h-4"></i>
+            <div class="flow-glass rounded-[32px] p-6 space-y-3">
+                <h3 class="outfit font-bold text-xs uppercase tracking-wider text-slate-400 flex items-center space-x-2">
+                    <i data-lucide="cpu" class="w-4 h-4 text-indigo-400"></i>
                     <span>クアンタムDNA解析</span>
                 </h3>
                 <div class="space-y-2 text-xs">
-                    <div class="flex justify-between py-1.5 border-b border-white/5">
+                    <div class="flex justify-between py-2 border-b border-white/5">
                         <span class="text-slate-400">次元ジャンル</span>
-                        <span id="dna-genre" class="font-bold text-right">-</span>
+                        <span id="dna-genre" class="font-bold text-right text-slate-200">-</span>
                     </div>
-                    <div class="flex justify-between py-1.5 border-b border-white/5">
+                    <div class="flex justify-between py-2 border-b border-white/5">
                         <span class="text-slate-400">世界観アートスタイル</span>
-                        <span id="dna-art" class="font-bold text-right">-</span>
+                        <span id="dna-art" class="font-bold text-right text-slate-200">-</span>
                     </div>
-                    <div class="flex justify-between py-1.5 border-b border-white/5">
+                    <div class="flex justify-between py-2 border-b border-white/5">
                         <span class="text-slate-400">物理演算重力・速度</span>
-                        <span id="dna-physics" class="mono font-bold text-right">-</span>
+                        <span id="dna-physics" class="mono font-bold text-right text-slate-200">-</span>
                     </div>
-                    <div class="flex justify-between py-1.5">
+                    <div class="flex justify-between py-2">
                         <span class="text-slate-400">自動生成サウンドスケープ</span>
-                        <span id="dna-sound" class="mono font-bold text-right">-</span>
+                        <span id="dna-sound" class="mono font-bold text-right text-slate-200">-</span>
                     </div>
                 </div>
             </div>
 
             <!-- Famous Universes -->
-            <div class="omni-glass rounded-3xl p-5 space-y-3">
-                <h3 class="display-font font-bold text-xs uppercase tracking-wider text-slate-400">名所ディスカバリー</h3>
-                <div class="flex flex-wrap gap-1.5" id="preset-chips"></div>
+            <div class="flow-glass rounded-[32px] p-6 space-y-3">
+                <h3 class="outfit font-bold text-xs uppercase tracking-wider text-slate-400">名所ディスカバリー</h3>
+                <div class="flex flex-wrap gap-2" id="preset-chips"></div>
             </div>
 
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="py-5 px-6 text-center text-xs text-slate-500 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between max-w-7xl w-full mx-auto gap-2">
-        <span>OMNI-VERSE ENGINE &copy; 2026 — 10,000,000 Independent Procedural Worlds</span>
-        <a href="https://www.paypal.com/ncp/payment/W667YSCR59YEN" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 transition font-bold">
-            開発者にコーヒーをご馳走する (PayPal) &rarr;
+    <footer class="py-6 px-6 text-center text-xs text-slate-500 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between max-w-7xl w-full mx-auto gap-3">
+        <span class="font-medium">OMNI-VERSE ENGINE &copy; 2026 — 10,000,000 Independent Procedural Worlds</span>
+        <a href="https://www.paypal.com/ncp/payment/W667YSCR59YEN" target="_blank" rel="noopener noreferrer" class="text-amber-400/90 hover:text-amber-300 transition font-bold flex items-center space-x-1.5">
+            <i data-lucide="coffee" class="w-3.5 h-3.5"></i>
+            <span>開発者にコーヒーをご馳走する (PayPal) &rarr;</span>
         </a>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        // ==========================================
-        // 1. DETERMINISTIC PRNG (Mulberry32)
-        // ==========================================
         function createPRNG(seed) {
             let a = seed >>> 0;
             return function() {
@@ -256,9 +268,6 @@
             };
         }
 
-        // ==========================================
-        // 2. PROCEDURAL AUDIO SYNTHESIZER
-        // ==========================================
         let audioCtx = null;
         let audioEnabled = true;
 
@@ -292,9 +301,6 @@
             } catch(e) {}
         }
 
-        // ==========================================
-        // 3. 10,000,000 UNIVERSE GENERATOR
-        // ==========================================
         const MAX_UNIVERSES = 10000000;
         let currentSeed = 1;
         let universe = null;
@@ -309,12 +315,12 @@
         ];
 
         const ART_STYLES = [
-            { name: 'Cyber Neon Tokyo', bg: '#030712', panel: 'rgba(15, 23, 42, 0.8)', grid: true, particle: 'neon' },
-            { name: 'Solar Minimalist', bg: '#0c0a09', panel: 'rgba(28, 25, 23, 0.82)', grid: false, particle: 'ember' },
-            { name: 'Quantum Frosted Glass', bg: '#022330', panel: 'rgba(6, 40, 56, 0.75)', grid: true, particle: 'crystal' },
-            { name: 'Crimson Abyss', bg: '#110206', panel: 'rgba(38, 8, 16, 0.82)', grid: false, particle: 'blood' },
-            { name: 'Emerald Biosphere', bg: '#02160d', panel: 'rgba(6, 36, 20, 0.78)', grid: true, particle: 'leaf' },
-            { name: 'Astral Monolith', bg: '#09090b', panel: 'rgba(24, 24, 27, 0.85)', grid: true, particle: 'star' }
+            { name: 'Cyber Neon Tokyo', bg: '#030712', grid: true },
+            { name: 'Solar Minimalist', bg: '#0c0a09', grid: false },
+            { name: 'Quantum Frosted Glass', bg: '#022330', grid: true },
+            { name: 'Crimson Abyss', bg: '#110206', grid: false },
+            { name: 'Emerald Biosphere', bg: '#02160d', grid: true },
+            { name: 'Astral Monolith', bg: '#09090b', grid: true }
         ];
 
         const SCALES = [
@@ -348,16 +354,12 @@
             const sizeMult = +(0.8 + rng() * 0.5).toFixed(2);
             const waveType = ['sine', 'triangle', 'sawtooth'][Math.floor(rng() * 3)];
 
-            // Apply Dynamic Steam/Flow Theme to Page UI
             document.documentElement.style.setProperty('--accent', accentColor);
             document.documentElement.style.setProperty('--accent-glow', accentGlow);
             document.documentElement.style.setProperty('--bg-deep', art.bg);
-            document.documentElement.style.setProperty('--panel-bg', art.panel);
 
-            // Independent URL Route (Query Parameter ?world=N)
             window.history.replaceState(null, '', `?world=${seed}`);
 
-            // Update UI
             document.getElementById('seed-input').value = seed;
             document.getElementById('hud-id').innerText = `#${seed.toLocaleString()}`;
             document.getElementById('hud-genre').innerText = genre.name;
@@ -374,7 +376,7 @@
             document.getElementById('start-btn-text').innerText = 'この宇宙にログイン';
 
             document.getElementById('dna-genre').innerText = genre.name;
-            document.getElementById('dna-art').innerText = `${art.name} (${art.particle})`;
+            document.getElementById('dna-art').innerText = art.name;
             document.getElementById('dna-physics').innerText = `SPD x${speedMult} / GRV x${gravityMult}`;
             document.getElementById('dna-sound').innerText = `${scale.name} (${waveType})`;
             lucide.createIcons();
@@ -385,9 +387,6 @@
             };
         }
 
-        // ==========================================
-        // 4. HIGH-END GAME ENGINE (Steam/Roblox Grade)
-        // ==========================================
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -435,11 +434,11 @@
 
             const g = universe.genre.id;
             if (g === 'NEO_RUNNER') {
-                player = { x: 160, y: 440, vy: 0, r: 18 * universe.sizeMult, grounded: true, trail: [] };
+                player = { x: 160, y: 440, vy: 0, r: 18 * universe.sizeMult, grounded: true };
             } else if (g === 'GRAVITY_ORBIT') {
                 player = { angle: 0, radius: 140, targetRadius: 140, dir: 1, r: 16 * universe.sizeMult };
             } else if (g === 'MATRIX_SURF') {
-                player = { x: 180, y: 280, vy: 0, r: 15 * universe.sizeMult, trail: [] };
+                player = { x: 180, y: 280, vy: 0, r: 15 * universe.sizeMult };
             } else if (g === 'HYPER_DEFENDER') {
                 player = { x: 450, y: 280, r: 24, bullets: [], pulse: 0 };
             } else if (g === 'CHRONO_SLASH') {
@@ -523,16 +522,13 @@
         });
         window.addEventListener('keyup', (e) => { if (e.code === 'Space') isPointerDown = false; });
 
-        // ==========================================
-        // 5. RENDER ENGINE (Steam/Roblox Quality Bloom)
-        // ==========================================
         function drawRenderShape(x, y, r, color, glow = true) {
             ctx.save();
             ctx.translate(x, y);
             ctx.fillStyle = color;
             if (glow) {
                 ctx.shadowColor = color;
-                ctx.shadowBlur = 22;
+                ctx.shadowBlur = 24;
             }
             ctx.beginPath();
             ctx.arc(0, 0, r, 0, Math.PI * 2);
@@ -545,9 +541,8 @@
             ctx.fillStyle = universe.art.bg;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Grid background
             if (universe.art.grid) {
-                ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
                 ctx.lineWidth = 1;
                 const step = 45;
                 const offset = (frame * universe.speedMult) % step;
@@ -559,7 +554,6 @@
                 }
             }
 
-            // Starfield
             ctx.fillStyle = universe.accentColor;
             stars.forEach(s => {
                 s.x -= s.spd;
@@ -569,7 +563,6 @@
             });
             ctx.globalAlpha = 1;
 
-            // Particles
             for (let i = particles.length - 1; i >= 0; i--) {
                 const p = particles[i];
                 p.x += p.vx; p.y += p.vy; p.life -= 0.025;
@@ -590,7 +583,6 @@
 
             const g = universe.genre.id;
 
-            // --- GENRE 1: NEO RUNNER ---
             if (g === 'NEO_RUNNER') {
                 const floorY = 460;
                 ctx.strokeStyle = universe.accentColor;
@@ -625,9 +617,7 @@
                         document.getElementById('hud-score').innerText = score;
                     }
                 }
-            }
-            // --- GENRE 2: GRAVITY ORBIT ---
-            else if (g === 'GRAVITY_ORBIT') {
+            } else if (g === 'GRAVITY_ORBIT') {
                 const cx = 450, cy = 280;
                 player.radius += (player.targetRadius - player.radius) * 0.2;
                 player.angle += 0.05 * universe.speedMult * player.dir;
@@ -671,9 +661,7 @@
                         }
                     } else if (e.life <= 0) entities.splice(i, 1);
                 }
-            }
-            // --- GENRE 3: MATRIX SURF ---
-            else if (g === 'MATRIX_SURF') {
+            } else if (g === 'MATRIX_SURF') {
                 player.vy += (isPointerDown ? -0.6 : 0.6) * universe.gravityMult;
                 player.vy *= 0.93;
                 player.y += player.vy;
@@ -705,9 +693,7 @@
                     }
                     if (e.x < -50) entities.splice(i, 1);
                 }
-            }
-            // --- GENRE 4: HYPER DEFENDER ---
-            else if (g === 'HYPER_DEFENDER') {
+            } else if (g === 'HYPER_DEFENDER') {
                 player.pulse *= 0.88;
                 drawRenderShape(player.x, player.y, player.r + player.pulse * 10, universe.accentColor, true);
 
@@ -748,9 +734,7 @@
                         }
                     }
                 }
-            }
-            // --- GENRE 5: CHRONO SLASH ---
-            else if (g === 'CHRONO_SLASH') {
+            } else if (g === 'CHRONO_SLASH') {
                 const cx = 450, cy = 280;
                 player.angle += player.speed * player.dir;
 
@@ -775,9 +759,6 @@
             requestAnimationFrame(renderLoop);
         }
 
-        // ==========================================
-        // 6. ROUTING & CONTROLS
-        // ==========================================
         function loadUniverse(seed) {
             gameState = 'IDLE';
             universe = buildUniverse(seed);
@@ -812,18 +793,16 @@
             }, 2500);
         }
 
-        // Preset Discovery Chips
         const famousSeeds = [1, 777, 42069, 128500, 999999, 3141592, 7777777, 10000000];
         const chipBox = document.getElementById('preset-chips');
         famousSeeds.forEach(s => {
             const btn = document.createElement('button');
-            btn.className = 'mono text-[11px] px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 transition font-bold text-slate-300';
+            btn.className = 'mono text-[11px] px-3.5 py-2 rounded-2xl flow-glass-sub hover:bg-white/15 transition font-bold text-slate-300 shadow-sm';
             btn.innerText = `#${s.toLocaleString()}`;
             btn.onclick = () => loadUniverse(s);
             chipBox.appendChild(btn);
         });
 
-        // Parse ?world=N query parameter for independent routing
         const urlParams = new URLSearchParams(window.location.search);
         const queryWorld = parseInt(urlParams.get('world'), 10);
         loadUniverse(!isNaN(queryWorld) ? queryWorld : 1);
