@@ -3,97 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>OMNI-FLOW 10M | 10,000,000 Procedural Games</title>
+    <title>OMNI-VERSE 10M | Next-Gen Procedural Arcade</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
         :root {
-            --accent: #22c55e;
-            --accent-glow: rgba(34, 197, 94, 0.35);
-            --bg-deep: #030712;
-            --panel-bg: rgba(15, 23, 42, 0.65);
-            --panel-border: rgba(255, 255, 255, 0.08);
-            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.4);
+            --bg-deep: #020617;
+            --panel-bg: rgba(15, 23, 42, 0.75);
+            --panel-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            font-family: var(--font-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-deep);
             color: #f8fafc;
-            transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             overflow-x: hidden;
         }
 
         .mono { font-family: 'JetBrains Mono', monospace; }
+        .display-font { font-family: 'Space Grotesk', sans-serif; }
 
-        /* Google Flow-inspired Glassmorphism & Dynamic Theme Surface */
-        .flow-glass {
+        /* Steam/Roblox/Flow-grade Glassmorphism & Lighting */
+        .omni-glass {
             background: var(--panel-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--panel-border);
-            box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7), 0 0 30px -10px var(--accent-glow);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px -10px var(--accent-glow);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .flow-btn-accent {
+        .omni-btn {
             background-color: var(--accent);
-            box-shadow: 0 0 25px -5px var(--accent-glow);
-            transition: all 0.25s ease;
+            box-shadow: 0 0 30px -5px var(--accent-glow);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .flow-btn-accent:hover {
-            filter: brightness(1.12);
-            transform: translateY(-1px);
+        .omni-btn:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px 0 var(--accent-glow);
         }
 
-        /* Ambient Background Mesh */
-        #ambient-bg {
+        #ambient-glow {
             position: fixed;
             inset: 0;
             z-index: -1;
-            background: radial-gradient(circle at 20% 20%, var(--accent-glow), transparent 45%),
-                        radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.12), transparent 50%);
+            background: radial-gradient(circle at 15% 15%, var(--accent-glow), transparent 50%),
+                        radial-gradient(circle at 85% 85%, rgba(14, 165, 233, 0.15), transparent 55%);
             transition: background 0.8s ease;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 999px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 999px; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-white/20">
 
-    <div id="ambient-bg"></div>
+    <div id="ambient-glow"></div>
 
-    <!-- Top Navigation Bar -->
-    <header class="flow-glass sticky top-0 z-40 px-4 md:px-8 py-3.5 flex items-center justify-between border-b border-white/10">
+    <!-- Header -->
+    <header class="omni-glass sticky top-0 z-40 px-4 md:px-8 py-3.5 flex items-center justify-between border-b border-white/10">
         <div class="flex items-center space-x-3.5">
-            <div id="logo-box" class="w-10 h-10 rounded-xl flex items-center justify-center flow-btn-accent text-slate-950 font-black">
-                <i data-lucide="sparkles" class="w-5 h-5"></i>
+            <div id="logo-box" class="w-10 h-10 rounded-2xl flex items-center justify-center omni-btn text-white font-black shadow-lg">
+                <i data-lucide="compass" class="w-5 h-5"></i>
             </div>
             <div>
                 <div class="flex items-center space-x-2">
-                    <span class="font-extrabold text-base md:text-lg tracking-tight">OMNI-FLOW</span>
-                    <span class="text-[10px] mono px-2 py-0.5 rounded-full bg-white/10 border border-white/10 text-slate-300">10,000,000 WORLDS</span>
+                    <span class="display-font font-bold text-base md:text-lg tracking-wider">OMNI-VERSE</span>
+                    <span class="text-[10px] mono px-2.5 py-0.5 rounded-full bg-white/10 border border-white/10 text-slate-300">10M UNIVERSES</span>
                 </div>
-                <p id="world-subtitle" class="text-xs text-slate-400 truncate max-w-[200px] sm:max-w-md">Procedural Multiverse Engine</p>
+                <p id="universe-subtitle" class="text-xs text-slate-400 truncate max-w-[220px] sm:max-w-md">Quantum Procedural Engine</p>
             </div>
         </div>
 
-        <div class="flex items-center space-x-2.5 md:space-x-4">
-            <!-- Sound Toggle -->
+        <div class="flex items-center space-x-3">
             <button onclick="toggleAudio()" id="audio-btn" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 transition" title="サウンド切替">
                 <i data-lucide="volume-2" id="audio-icon" class="w-4 h-4"></i>
             </button>
 
-            <!-- PayPal Coffee Button (Integrated with your exact link) -->
+            <!-- PayPal Coffee Button (1箇所・ゲームの邪魔にならず一目でわかる位置) -->
             <a href="https://www.paypal.com/ncp/payment/W667YSCR59YEN" target="_blank" rel="noopener noreferrer"
-               class="flex items-center space-x-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 hover:from-amber-500/30 hover:to-orange-500/30 text-amber-300 border border-amber-400/30 px-3.5 py-2 rounded-xl text-xs font-bold transition-all shadow-lg shadow-amber-950/20">
+               class="flex items-center space-x-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 hover:from-amber-500/30 hover:to-orange-500/30 text-amber-300 border border-amber-400/40 px-3.5 py-2 rounded-xl text-xs font-bold transition-all shadow-lg shadow-amber-950/30">
                 <i data-lucide="coffee" class="w-4 h-4 text-amber-400"></i>
-                <span>開発者にコーヒーをプレゼント</span>
+                <span class="hidden sm:inline">開発者にコーヒーをプレゼント</span>
             </a>
         </div>
     </header>
@@ -101,139 +99,132 @@
     <!-- Main Workspace -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
-        <!-- Left / Center: Game Viewport (8 cols) -->
+        <!-- Game Viewport (8 Cols) -->
         <div class="lg:col-span-8 flex flex-col space-y-4">
-            <div id="viewport-card" class="flow-glass rounded-3xl p-3 md:p-5 relative overflow-hidden flex flex-col items-center justify-center">
+            <div class="omni-glass rounded-3xl p-3 md:p-5 relative overflow-hidden flex flex-col items-center justify-center">
                 
-                <!-- HUD Bar -->
+                <!-- HUD -->
                 <div class="w-full flex flex-wrap items-center justify-between gap-2 px-2 pb-3 text-xs">
                     <div class="flex items-center space-x-3">
-                        <span class="mono px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 font-bold" id="hud-id">#00,000,001</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 font-semibold" id="hud-genre">GENRE</span>
-                        <span class="hidden sm:inline-block px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300" id="hud-theme">THEME</span>
+                        <span class="mono px-3 py-1 rounded-xl bg-black/50 border border-white/10 font-bold text-slate-200" id="hud-id">#00,000,001</span>
+                        <span class="px-3 py-1 rounded-xl bg-white/5 border border-white/10 font-semibold display-font" id="hud-genre">GENRE</span>
                     </div>
                     <div class="flex items-center space-x-4 mono">
-                        <div>BEST: <span id="hud-best" class="text-slate-300 font-bold">0</span></div>
+                        <div class="text-slate-400">BEST: <span id="hud-best" class="text-white font-bold">0</span></div>
                         <div class="text-sm">SCORE: <span id="hud-score" class="font-extrabold text-white">0</span></div>
                     </div>
                 </div>
 
-                <!-- Interactive Canvas -->
-                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 bg-black/60 shadow-inner">
-                    <canvas id="gameCanvas" width="800" height="500" class="w-full h-full block cursor-pointer touch-none"></canvas>
+                <!-- Canvas Viewport -->
+                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 bg-slate-950 shadow-2xl">
+                    <canvas id="gameCanvas" width="900" height="560" class="w-full h-full block cursor-pointer touch-none"></canvas>
 
-                    <!-- Start / Game Over Overlay -->
-                    <div id="overlay-screen" class="absolute inset-0 bg-slate-950/75 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-300">
-                        <div id="overlay-badge" class="mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full bg-white/10 border border-white/15 mb-3">
-                            WORLD SEED #1
+                    <!-- Overlay Screen -->
+                    <div id="overlay-screen" class="absolute inset-0 bg-slate-950/85 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center transition-opacity duration-500">
+                        <div id="overlay-badge" class="mono text-[11px] uppercase tracking-widest px-3.5 py-1 rounded-full bg-white/10 border border-white/20 mb-3 text-indigo-400">
+                            UNIVERSE SEED #1
                         </div>
-                        <h1 id="overlay-title" class="text-2xl md:text-4xl font-extrabold tracking-tight mb-2">
-                            AETHER RUNNER
+                        <h1 id="overlay-title" class="display-font text-3xl md:text-5xl font-extrabold tracking-tight mb-3 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                            CYBER ODYSSEY
                         </h1>
-                        <p id="overlay-rule" class="text-xs md:text-sm text-slate-300 max-w-md mb-6 leading-relaxed">
-                            ルール説明がここに自動生成されます
+                        <p id="overlay-desc" class="text-xs md:text-sm text-slate-300 max-w-lg mb-8 leading-relaxed">
+                            この世界の物理法則とルール説明
                         </p>
                         <div class="flex flex-wrap items-center justify-center gap-3">
-                            <button onclick="startGame()" class="flow-btn-accent text-slate-950 font-extrabold px-7 py-3 rounded-xl text-sm flex items-center space-x-2 cursor-pointer">
+                            <button onclick="startGame()" class="omni-btn text-white font-extrabold px-8 py-3.5 rounded-2xl text-sm flex items-center space-x-2.5 cursor-pointer">
                                 <i data-lucide="play" class="w-4 h-4 fill-current"></i>
-                                <span id="start-btn-label">この世界をプレイ</span>
+                                <span id="start-btn-text">この宇宙を体験する</span>
                             </button>
-                            <button onclick="generateRandomWorld()" class="bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold px-5 py-3 rounded-xl text-sm flex items-center space-x-2 transition cursor-pointer">
-                                <i data-lucide="shuffle" class="w-4 h-4"></i>
-                                <span>別の世界を生成</span>
+                            <button onclick="jumpRandomUniverse()" class="bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold px-6 py-3.5 rounded-2xl text-sm flex items-center space-x-2 transition cursor-pointer">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                <span>別の宇宙へジャンプ</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Quick Controls Footer -->
+                <!-- Footer Info -->
                 <div class="w-full pt-3 px-2 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-2" id="control-hint">
                         <i data-lucide="mouse-pointer-click" class="w-4 h-4 text-slate-300"></i>
-                        <span id="control-hint">クリック / タップ / スペースキー で操作</span>
+                        <span>操作方法: クリック / スペースキー</span>
                     </div>
-                    <div class="flex items-center space-x-3">
-                        <button onclick="shareCurrentWorld()" class="hover:text-white flex items-center space-x-1 transition">
-                            <i data-lucide="link" class="w-3.5 h-3.5"></i>
-                            <span id="share-label">このゲームのURLをコピー</span>
-                        </button>
-                    </div>
+                    <button onclick="shareUniverse()" class="hover:text-white flex items-center space-x-1 transition" id="share-label">
+                        <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                        <span>この宇宙の個別URLをコピー</span>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Right: 10,000,000 Seed Explorer & Specs (4 cols) -->
+        <!-- Sidebar (4 Cols) -->
         <div class="lg:col-span-4 flex flex-col space-y-4">
             
-            <!-- Seed Navigator Card -->
-            <div class="flow-glass rounded-3xl p-5 space-y-4">
+            <!-- Universe Navigator -->
+            <div class="omni-glass rounded-3xl p-5 space-y-4">
                 <div class="flex items-center justify-between">
-                    <h2 class="font-bold text-sm flex items-center space-x-2">
+                    <h2 class="display-font font-bold text-sm flex items-center space-x-2">
                         <i data-lucide="compass" class="w-4 h-4"></i>
-                        <span>1,000万ワールド探索</span>
+                        <span>10,000,000 宇宙セレクター</span>
                     </h2>
                     <span class="mono text-[11px] text-slate-400">1 〜 10,000,000</span>
                 </div>
 
                 <div class="flex space-x-2">
                     <input type="number" id="seed-input" min="1" max="10000000" value="1"
-                           class="mono bg-black/40 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm w-full focus:outline-none focus:border-white/40 text-white"
-                           placeholder="1 〜 10000000">
-                    <button onclick="loadFromInput()" class="bg-white/10 hover:bg-white/20 border border-white/15 px-4 py-2.5 rounded-xl text-xs font-bold transition shrink-0">
-                        召喚
+                           class="mono bg-black/50 border border-white/15 rounded-2xl px-4 py-3 text-sm w-full focus:outline-none focus:border-indigo-500 text-white font-bold"
+                           placeholder="宇宙IDを入力">
+                    <button onclick="loadFromInput()" class="omni-btn text-white px-5 py-3 rounded-2xl text-xs font-extrabold transition shrink-0">
+                        ワープ
                     </button>
                 </div>
 
                 <div class="grid grid-cols-2 gap-2">
-                    <button onclick="stepWorld(-1)" class="bg-white/5 hover:bg-white/10 border border-white/10 py-2 rounded-xl text-xs font-semibold flex items-center justify-center space-x-1 transition">
+                    <button onclick="stepUniverse(-1)" class="bg-white/5 hover:bg-white/10 border border-white/10 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center space-x-1 transition">
                         <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                        <span>前のID</span>
+                        <span>前の宇宙</span>
                     </button>
-                    <button onclick="stepWorld(1)" class="bg-white/5 hover:bg-white/10 border border-white/10 py-2 rounded-xl text-xs font-semibold flex items-center justify-center space-x-1 transition">
-                        <span>次のID</span>
+                    <button onclick="stepUniverse(1)" class="bg-white/5 hover:bg-white/10 border border-white/10 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center space-x-1 transition">
+                        <span>次の宇宙</span>
                         <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </button>
                 </div>
 
-                <button onclick="generateRandomWorld()" class="w-full flow-btn-accent text-slate-950 font-extrabold py-3 rounded-xl text-xs flex items-center justify-center space-x-2 cursor-pointer">
+                <button onclick="jumpRandomUniverse()" class="w-full omni-btn text-white font-extrabold py-3.5 rounded-2xl text-xs flex items-center justify-center space-x-2 cursor-pointer">
                     <i data-lucide="dices" class="w-4 h-4"></i>
-                    <span>1,000万通りからランダム生成</span>
+                    <span>完全ランダムな宇宙を探索</span>
                 </button>
             </div>
 
-            <!-- World DNA / Parameters Card -->
-            <div class="flow-glass rounded-3xl p-5 space-y-3">
-                <h3 class="font-bold text-xs uppercase tracking-wider text-slate-400 flex items-center space-x-2">
+            <!-- Universe DNA Spec -->
+            <div class="omni-glass rounded-3xl p-5 space-y-3">
+                <h3 class="display-font font-bold text-xs uppercase tracking-wider text-slate-400 flex items-center space-x-2">
                     <i data-lucide="cpu" class="w-4 h-4"></i>
-                    <span>自動生成されたワールドDNA</span>
+                    <span>クアンタムDNA解析</span>
                 </h3>
                 <div class="space-y-2 text-xs">
                     <div class="flex justify-between py-1.5 border-b border-white/5">
-                        <span class="text-slate-400">ゲームジャンル</span>
+                        <span class="text-slate-400">次元ジャンル</span>
                         <span id="dna-genre" class="font-bold text-right">-</span>
                     </div>
                     <div class="flex justify-between py-1.5 border-b border-white/5">
-                        <span class="text-slate-400">世界観・アート</span>
-                        <span id="dna-theme" class="font-bold text-right">-</span>
+                        <span class="text-slate-400">世界観アートスタイル</span>
+                        <span id="dna-art" class="font-bold text-right">-</span>
                     </div>
                     <div class="flex justify-between py-1.5 border-b border-white/5">
-                        <span class="text-slate-400">特殊エフェクト</span>
-                        <span id="dna-effect" class="font-bold text-right">-</span>
-                    </div>
-                    <div class="flex justify-between py-1.5 border-b border-white/5">
-                        <span class="text-slate-400">物理・速度係数</span>
+                        <span class="text-slate-400">物理演算重力・速度</span>
                         <span id="dna-physics" class="mono font-bold text-right">-</span>
                     </div>
                     <div class="flex justify-between py-1.5">
-                        <span class="text-slate-400">自動生成BGMスケール</span>
-                        <span id="dna-audio" class="mono font-bold text-right">-</span>
+                        <span class="text-slate-400">自動生成サウンドスケープ</span>
+                        <span id="dna-sound" class="mono font-bold text-right">-</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Featured Curated Seeds -->
-            <div class="flow-glass rounded-3xl p-5 space-y-3">
-                <h3 class="font-bold text-xs uppercase tracking-wider text-slate-400">ピックアップ・シード</h3>
+            <!-- Famous Universes -->
+            <div class="omni-glass rounded-3xl p-5 space-y-3">
+                <h3 class="display-font font-bold text-xs uppercase tracking-wider text-slate-400">名所ディスカバリー</h3>
                 <div class="flex flex-wrap gap-1.5" id="preset-chips"></div>
             </div>
 
@@ -242,9 +233,9 @@
 
     <!-- Footer -->
     <footer class="py-5 px-6 text-center text-xs text-slate-500 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between max-w-7xl w-full mx-auto gap-2">
-        <span>OMNI-FLOW ENGINE &copy; 2026 — 10,000,000 Unique Procedural Games</span>
-        <a href="https://www.paypal.com/ncp/payment/W667YSCR59YEN" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 transition">
-            Support Developer with a Coffee (PayPal) &rarr;
+        <span>OMNI-VERSE ENGINE &copy; 2026 — 10,000,000 Independent Procedural Worlds</span>
+        <a href="https://www.paypal.com/ncp/payment/W667YSCR59YEN" target="_blank" rel="noopener noreferrer" class="text-amber-400/80 hover:text-amber-300 transition font-bold">
+            開発者にコーヒーをご馳走する (PayPal) &rarr;
         </a>
     </footer>
 
@@ -266,15 +257,13 @@
         }
 
         // ==========================================
-        // 2. PROCEDURAL AUDIO ENGINE (Web Audio API)
+        // 2. PROCEDURAL AUDIO SYNTHESIZER
         // ==========================================
         let audioCtx = null;
         let audioEnabled = true;
 
         function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             if (audioCtx.state === 'suspended') audioCtx.resume();
         }
 
@@ -285,7 +274,7 @@
             lucide.createIcons();
         }
 
-        function playSynthTone(freq, type = 'sine', duration = 0.12, gainVal = 0.08) {
+        function playTone(freq, type = 'sine', duration = 0.15) {
             if (!audioEnabled) return;
             try {
                 initAudio();
@@ -293,112 +282,111 @@
                 const gain = audioCtx.createGain();
                 osc.type = type;
                 osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(freq * 0.5, audioCtx.currentTime + duration);
-                gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.frequency.exponentialRampToValueAtTime(freq * 0.4, audioCtx.currentTime + duration);
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
                 osc.start();
                 osc.stop(audioCtx.currentTime + duration);
-            } catch (e) {}
+            } catch(e) {}
         }
 
         // ==========================================
-        // 3. MULTIVERSE WORLD GENERATOR (1 to 10,000,000)
+        // 3. 10,000,000 UNIVERSE GENERATOR
         // ==========================================
-        const MAX_WORLDS = 10000000;
+        const MAX_UNIVERSES = 10000000;
         let currentSeed = 1;
-        let world = null;
+        let universe = null;
         let bestScores = {};
 
         const GENRES = [
-            { id: 'GRAVITY_RUNNER', name: 'グラビティ・ランナー', hint: 'クリック/スペースで重力反転・ジャンプ！迫る障害物を回避せよ', control: 'クリック / スペースでジャンプ' },
-            { id: 'ORBIT_DODGER', name: 'オービット・ドッジャー', hint: 'クリックするたびに軌道半径と回転方向が切り替わる！光球を集めよ', control: 'クリック / スペースで軌道切替' },
-            { id: 'WAVE_SURFER', name: 'ウェーブ・サーファー', hint: '長押しで上昇、離して下降！エネルギーの波を乗りこなせ', control: '長押しで上昇 / 離して下降' },
-            { id: 'STAR_SHOOTER', name: 'パルス・ディフェンダー', hint: 'クリック位置へエネルギー弾を発射！四方から迫るコアを撃破せよ', control: '画面クリックで照準ショット' },
-            { id: 'TIME_BREAKER', name: 'クロノ・スライサー', hint: 'ターゲットがゾーンに重なる瞬間にクリック！コンボを繋げ', control: 'タイミング良くクリック' }
+            { id: 'NEO_RUNNER', name: 'クアンタム・ハイウェイ', desc: '幾何学の障壁を飛び越え、虚空のハイウェイを疾走せよ', control: 'クリック / スペースでジャンプ' },
+            { id: 'GRAVITY_ORBIT', name: 'ステラ・グラビティ', desc: '引力と遠心力を切り替え、軌道上のエナジーコアを回収せよ', control: 'クリックで軌道・重力反転' },
+            { id: 'MATRIX_SURF', name: 'ゼロ・グラビティウェーブ', desc: 'エネルギー波のうねりを自在に操り、セクターを突破せよ', control: '長押しで浮上 / 離して下降' },
+            { id: 'HYPER_DEFENDER', name: 'コア・ガーディアン', desc: '全方位から迫る異次元生命体を光子弾で迎撃せよ', control: '画面クリックで照準射撃' },
+            { id: 'CHRONO_SLASH', name: 'クロノ・シンクロナイザー', desc: '周回するエネルギーリングがコアに重なる瞬間を狙え', control: 'タイミング良くクリック' }
         ];
 
-        const THEMES = [
-            { name: 'Cyber Neon Tokyo', bg: '#050816', panel: 'rgba(15, 23, 42, 0.7)', shape: 'hexagon', grid: true },
-            { name: 'Solaris Minimal', bg: '#0f0c08', panel: 'rgba(28, 22, 16, 0.72)', shape: 'circle', grid: false },
-            { name: 'Quantum Frosted Glass', bg: '#041014', panel: 'rgba(8, 28, 36, 0.68)', shape: 'diamond', grid: true },
-            { name: 'Crimson Void', bg: '#120409', panel: 'rgba(32, 10, 18, 0.72)', shape: 'triangle', grid: false },
-            { name: 'Emerald Biosphere', bg: '#03120b', panel: 'rgba(6, 30, 20, 0.7)', shape: 'circle', grid: true },
-            { name: 'Astral Monochrome', bg: '#09090b', panel: 'rgba(24, 24, 27, 0.75)', shape: 'square', grid: true }
+        const ART_STYLES = [
+            { name: 'Cyber Neon Tokyo', bg: '#030712', panel: 'rgba(15, 23, 42, 0.8)', grid: true, particle: 'neon' },
+            { name: 'Solar Minimalist', bg: '#0c0a09', panel: 'rgba(28, 25, 23, 0.82)', grid: false, particle: 'ember' },
+            { name: 'Quantum Frosted Glass', bg: '#022330', panel: 'rgba(6, 40, 56, 0.75)', grid: true, particle: 'crystal' },
+            { name: 'Crimson Abyss', bg: '#110206', panel: 'rgba(38, 8, 16, 0.82)', grid: false, particle: 'blood' },
+            { name: 'Emerald Biosphere', bg: '#02160d', panel: 'rgba(6, 36, 20, 0.78)', grid: true, particle: 'leaf' },
+            { name: 'Astral Monolith', bg: '#09090b', panel: 'rgba(24, 24, 27, 0.85)', grid: true, particle: 'star' }
         ];
 
-        const EFFECTS = ['Bloom Trails', 'Starfield Warp', 'Geometric Pulse', 'Aurora Waves', 'Particle Sparks', 'Matrix Rain'];
         const SCALES = [
-            { name: 'Pentatonic Major', notes: [261.63, 293.66, 329.63, 392.00, 440.00, 523.25] },
-            { name: 'Cyber Phrygian', notes: [220.00, 233.08, 277.18, 293.66, 329.63, 349.23] },
-            { name: 'Lydian Dream', notes: [261.63, 293.66, 329.63, 369.99, 392.00, 493.88] },
-            { name: 'Dorian Space', notes: [293.66, 329.63, 349.23, 392.00, 440.00, 493.88] }
+            { name: 'Pentatonic Major', notes: [261.63, 293.66, 329.63, 392.00, 440.00] },
+            { name: 'Cyber Phrygian', notes: [220.00, 233.08, 277.18, 329.63, 349.23] },
+            { name: 'Lydian Dream', notes: [293.66, 329.63, 369.99, 440.00, 493.88] },
+            { name: 'Dorian Space', notes: [246.94, 277.18, 293.66, 329.63, 392.00] }
         ];
 
-        const PREFIXES = ['AETHER', 'CHRONO', 'NOVA', 'ZENITH', 'KINETIC', 'VORTEX', 'PRISM', 'ECHO', 'SOLAR', 'HYPER', 'SPECTRA', 'APEX'];
-        const SUFFIXES = ['FLOW', 'PULSE', 'SHIFT', 'DRIFT', 'CORE', 'MATRIX', 'HORIZON', 'SPARK', 'NEXUS', 'SPHERE', 'WAVE', 'REALM'];
+        const PREFIXES = ['AETHER', 'CHRONO', 'NOVA', 'ZENITH', 'KINETIC', 'VORTEX', 'PRISM', 'ECHO', 'SOLAR', 'HYPER', 'SPECTRA', 'APEX', 'NEXUS', 'STELLAR'];
+        const SUFFIXES = ['FLOW', 'PULSE', 'SHIFT', 'DRIFT', 'CORE', 'MATRIX', 'HORIZON', 'SPARK', 'NEXUS', 'SPHERE', 'WAVE', 'REALM', 'PRIME', 'VECTOR'];
 
-        function buildWorldFromSeed(seed) {
-            seed = Math.max(1, Math.min(MAX_WORLDS, Math.floor(seed)));
+        function buildUniverse(seed) {
+            seed = Math.max(1, Math.min(MAX_UNIVERSES, Math.floor(seed)));
             currentSeed = seed;
-            const rng = createPRNG(seed * 9973 + 13);
+            const rng = createPRNG(seed * 73856093 ^ 19349663);
 
-            const primaryHue = Math.floor(rng() * 360);
-            const secondaryHue = (primaryHue + 45 + Math.floor(rng() * 140)) % 360;
-            const accentColor = `hsl(${primaryHue}, 90%, 60%)`;
-            const secondaryColor = `hsl(${secondaryHue}, 85%, 62%)`;
-            const accentGlow = `hsla(${primaryHue}, 90%, 55%, 0.35)`;
+            const hue = Math.floor(rng() * 360);
+            const secondaryHue = (hue + 60 + Math.floor(rng() * 120)) % 360;
+            const accentColor = `hsl(${hue}, 90%, 62%)`;
+            const secondaryColor = `hsl(${secondaryHue}, 85%, 58%)`;
+            const accentGlow = `hsla(${hue}, 90%, 55%, 0.45)`;
 
             const genre = GENRES[Math.floor(rng() * GENRES.length)];
-            const theme = THEMES[Math.floor(rng() * THEMES.length)];
-            const effect = EFFECTS[Math.floor(rng() * EFFECTS.length)];
+            const art = ART_STYLES[Math.floor(rng() * ART_STYLES.length)];
             const scale = SCALES[Math.floor(rng() * SCALES.length)];
             const title = `${PREFIXES[Math.floor(rng() * PREFIXES.length)]} ${SUFFIXES[Math.floor(rng() * SUFFIXES.length)]}`;
 
-            const speedMult = +(0.85 + rng() * 0.95).toFixed(2);
-            const gravityMult = +(0.8 + rng() * 0.8).toFixed(2);
-            const sizeMult = +(0.8 + rng() * 0.6).toFixed(2);
-            const waveType = ['sine', 'triangle', 'sawtooth', 'square'][Math.floor(rng() * 4)];
+            const speedMult = +(0.8 + rng() * 1.0).toFixed(2);
+            const gravityMult = +(0.7 + rng() * 0.9).toFixed(2);
+            const sizeMult = +(0.8 + rng() * 0.5).toFixed(2);
+            const waveType = ['sine', 'triangle', 'sawtooth'][Math.floor(rng() * 3)];
 
+            // Apply Dynamic Steam/Flow Theme to Page UI
             document.documentElement.style.setProperty('--accent', accentColor);
             document.documentElement.style.setProperty('--accent-glow', accentGlow);
-            document.documentElement.style.setProperty('--bg-deep', theme.bg);
-            document.documentElement.style.setProperty('--panel-bg', theme.panel);
+            document.documentElement.style.setProperty('--bg-deep', art.bg);
+            document.documentElement.style.setProperty('--panel-bg', art.panel);
 
-            window.history.replaceState(null, '', `#world-${seed}`);
+            // Independent URL Route (Query Parameter ?world=N)
+            window.history.replaceState(null, '', `?world=${seed}`);
 
+            // Update UI
             document.getElementById('seed-input').value = seed;
             document.getElementById('hud-id').innerText = `#${seed.toLocaleString()}`;
             document.getElementById('hud-genre').innerText = genre.name;
             document.getElementById('hud-genre').style.color = accentColor;
-            document.getElementById('hud-theme').innerText = theme.name;
             document.getElementById('hud-best').innerText = bestScores[seed] || 0;
             document.getElementById('hud-score').innerText = '0';
 
-            document.getElementById('world-subtitle').innerText = `World #${seed.toLocaleString()} — ${genre.name}`;
-            document.getElementById('overlay-badge').innerText = `WORLD SEED #${seed.toLocaleString()} / 10,000,000`;
+            document.getElementById('universe-subtitle').innerText = `Universe #${seed.toLocaleString()} — ${genre.name}`;
+            document.getElementById('overlay-badge').innerText = `UNIVERSE SEED #${seed.toLocaleString()} / 10,000,000`;
             document.getElementById('overlay-badge').style.color = accentColor;
             document.getElementById('overlay-title').innerText = title;
-            document.getElementById('overlay-rule').innerText = genre.hint;
-            document.getElementById('control-hint').innerText = genre.control;
-            document.getElementById('start-btn-label').innerText = 'この世界をプレイ';
+            document.getElementById('overlay-desc').innerText = genre.desc;
+            document.getElementById('control-hint').innerHTML = `<i data-lucide="mouse-pointer-click" class="w-4 h-4 text-slate-300"></i><span>操作: ${genre.control}</span>`;
+            document.getElementById('start-btn-text').innerText = 'この宇宙にログイン';
 
             document.getElementById('dna-genre').innerText = genre.name;
-            document.getElementById('dna-theme').innerText = `${theme.name} (${theme.shape})`;
-            document.getElementById('dna-effect').innerText = effect;
+            document.getElementById('dna-art').innerText = `${art.name} (${art.particle})`;
             document.getElementById('dna-physics').innerText = `SPD x${speedMult} / GRV x${gravityMult}`;
-            document.getElementById('dna-audio').innerText = `${scale.name} (${waveType})`;
+            document.getElementById('dna-sound').innerText = `${scale.name} (${waveType})`;
+            lucide.createIcons();
 
             return {
-                seed, title, genre, theme, effect, scale, waveType,
-                primaryHue, secondaryHue, accentColor, secondaryColor,
-                speedMult, gravityMult, sizeMult, rng
+                seed, title, genre, art, scale, waveType,
+                accentColor, secondaryColor, speedMult, gravityMult, sizeMult, rng
             };
         }
 
         // ==========================================
-        // 4. MULTI-GENRE GAME ENGINE
+        // 4. HIGH-END GAME ENGINE (Steam/Roblox Grade)
         // ==========================================
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
@@ -408,32 +396,29 @@
         let frame = 0;
         let isPointerDown = false;
         let particles = [];
-        let bgStars = [];
+        let stars = [];
         let entities = [];
         let player = {};
 
-        function initBackgroundParticles() {
-            bgStars = [];
-            for (let i = 0; i < 45; i++) {
-                bgStars.push({
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < 60; i++) {
+                stars.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    r: Math.random() * 2 + 0.5,
-                    spd: (Math.random() * 1.5 + 0.3) * world.speedMult
+                    r: Math.random() * 2.5 + 0.5,
+                    spd: (Math.random() * 2 + 0.5) * universe.speedMult
                 });
             }
         }
 
-        function spawnExplosion(x, y, color, count = 16) {
+        function createExplosion(x, y, color, count = 22) {
             for (let i = 0; i < count; i++) {
-                const angle = (Math.PI * 2 * i) / count + Math.random() * 0.4;
-                const speed = Math.random() * 5 + 2;
+                const angle = Math.random() * Math.PI * 2;
+                const spd = Math.random() * 6 + 1.5;
                 particles.push({
-                    x, y,
-                    vx: Math.cos(angle) * speed,
-                    vy: Math.sin(angle) * speed,
-                    life: 1.0,
-                    color
+                    x, y, vx: Math.cos(angle) * spd, vy: Math.sin(angle) * spd,
+                    life: 1.0, color, size: Math.random() * 4 + 2
                 });
             }
         }
@@ -448,78 +433,71 @@
             document.getElementById('hud-score').innerText = '0';
             document.getElementById('overlay-screen').classList.add('opacity-0', 'pointer-events-none');
 
-            const g = world.genre.id;
-            if (g === 'GRAVITY_RUNNER') {
-                player = { x: 140, y: 360, vy: 0, r: 16 * world.sizeMult, grounded: true, trail: [] };
-            } else if (g === 'ORBIT_DODGER') {
-                player = { angle: 0, radius: 130, targetRadius: 130, dir: 1, r: 14 * world.sizeMult, trail: [] };
-            } else if (g === 'WAVE_SURFER') {
-                player = { x: 160, y: 250, vy: 0, r: 14 * world.sizeMult, trail: [] };
-            } else if (g === 'STAR_SHOOTER') {
-                player = { x: 400, y: 250, r: 22, bullets: [], pulse: 0 };
-            } else if (g === 'TIME_BREAKER') {
-                player = { angle: 0, targetAngle: 1.5, speed: 0.045 * world.speedMult, radius: 140, combo: 1 };
+            const g = universe.genre.id;
+            if (g === 'NEO_RUNNER') {
+                player = { x: 160, y: 440, vy: 0, r: 18 * universe.sizeMult, grounded: true, trail: [] };
+            } else if (g === 'GRAVITY_ORBIT') {
+                player = { angle: 0, radius: 140, targetRadius: 140, dir: 1, r: 16 * universe.sizeMult };
+            } else if (g === 'MATRIX_SURF') {
+                player = { x: 180, y: 280, vy: 0, r: 15 * universe.sizeMult, trail: [] };
+            } else if (g === 'HYPER_DEFENDER') {
+                player = { x: 450, y: 280, r: 24, bullets: [], pulse: 0 };
+            } else if (g === 'CHRONO_SLASH') {
+                player = { angle: 0, targetAngle: 1.5, speed: 0.05 * universe.speedMult, radius: 150, combo: 1 };
             }
-
-            playNote(0);
+            playTone(440, universe.waveType, 0.2);
         }
 
         function endGame() {
             gameState = 'GAMEOVER';
-            playSynthTone(110, 'sawtooth', 0.35, 0.15);
+            playTone(130, 'sawtooth', 0.4);
             if (score > (bestScores[currentSeed] || 0)) {
                 bestScores[currentSeed] = score;
                 document.getElementById('hud-best').innerText = score;
             }
-            document.getElementById('overlay-title').innerText = `SCORE: ${score}`;
-            document.getElementById('overlay-rule').innerText = `${world.title} (#${currentSeed.toLocaleString()}) — 記録達成！もう一度挑戦しますか？`;
-            document.getElementById('start-btn-label').innerText = 'リトライ';
+            document.getElementById('overlay-title').innerText = `GAME OVER (SCORE: ${score})`;
+            document.getElementById('overlay-desc').innerText = `${universe.title} (#${currentSeed.toLocaleString()}) — ハイスコア更新！再挑戦しますか？`;
+            document.getElementById('start-btn-text').innerText = 'もう一度ログイン';
             document.getElementById('overlay-screen').classList.remove('opacity-0', 'pointer-events-none');
         }
 
         function playNote(idx) {
-            const notes = world.scale.notes;
-            const freq = notes[Math.abs(idx) % notes.length];
-            playSynthTone(freq, world.waveType, 0.14, 0.08);
+            const notes = universe.scale.notes;
+            playTone(notes[Math.abs(idx) % notes.length], universe.waveType, 0.12);
         }
 
         function handleAction(clientX, clientY) {
             if (gameState !== 'PLAYING') return;
-            const g = world.genre.id;
+            const g = universe.genre.id;
 
-            if (g === 'GRAVITY_RUNNER') {
+            if (g === 'NEO_RUNNER') {
                 if (player.grounded) {
-                    player.vy = -13.5 * Math.sqrt(world.gravityMult);
+                    player.vy = -14.5 * Math.sqrt(universe.gravityMult);
                     player.grounded = false;
-                    spawnExplosion(player.x, player.y, world.accentColor, 8);
+                    createExplosion(player.x, player.y, universe.accentColor, 10);
                     playNote(score);
                 }
-            } else if (g === 'ORBIT_DODGER') {
-                player.targetRadius = player.targetRadius > 100 ? 68 : 135;
+            } else if (g === 'GRAVITY_ORBIT') {
+                player.targetRadius = player.targetRadius > 110 ? 75 : 145;
                 player.dir *= -1;
                 playNote(score + 2);
-            } else if (g === 'STAR_SHOOTER') {
+            } else if (g === 'HYPER_DEFENDER') {
                 const rect = canvas.getBoundingClientRect();
                 const x = ((clientX ?? rect.left + rect.width / 2) - rect.left) * (canvas.width / rect.width);
-                const y = ((clientY ?? rect.top) - rect.top) * (canvas.height / rect.height);
+                const y = ((clientY ?? rect.top + rect.height / 2) - rect.top) * (canvas.height / rect.height);
                 const angle = Math.atan2(y - player.y, x - player.x);
-                player.bullets.push({
-                    x: player.x, y: player.y,
-                    vx: Math.cos(angle) * 11,
-                    vy: Math.sin(angle) * 11
-                });
+                player.bullets.push({ x: player.x, y: player.y, vx: Math.cos(angle) * 12, vy: Math.sin(angle) * 12 });
                 player.pulse = 1;
                 playNote(score + 1);
-            } else if (g === 'TIME_BREAKER') {
+            } else if (g === 'CHRONO_SLASH') {
                 let diff = Math.abs(Math.atan2(Math.sin(player.angle - player.targetAngle), Math.cos(player.angle - player.targetAngle)));
-                if (diff < 0.34) {
-                    score += 10 * player.combo;
+                if (diff < 0.35) {
+                    score += 15 * player.combo;
                     player.combo++;
-                    player.dir = (Math.random() > 0.5 ? 1 : -1);
-                    player.targetAngle = (player.angle + 1.8 + Math.random() * 2.5) % (Math.PI * 2);
-                    const tx = 400 + Math.cos(player.angle) * player.radius;
-                    const ty = 250 + Math.sin(player.angle) * player.radius;
-                    spawnExplosion(tx, ty, world.accentColor, 20);
+                    player.targetAngle = (player.angle + 2.0 + Math.random() * 2.2) % (Math.PI * 2);
+                    const tx = 450 + Math.cos(player.angle) * player.radius;
+                    const ty = 280 + Math.sin(player.angle) * player.radius;
+                    createExplosion(tx, ty, universe.accentColor, 24);
                     playNote(player.combo);
                     document.getElementById('hud-score').innerText = score;
                 } else {
@@ -543,52 +521,36 @@
                 }
             }
         });
-        window.addEventListener('keyup', (e) => {
-            if (e.code === 'Space') isPointerDown = false;
-        });
+        window.addEventListener('keyup', (e) => { if (e.code === 'Space') isPointerDown = false; });
 
         // ==========================================
-        // 5. RENDER & UPDATE LOOP
+        // 5. RENDER ENGINE (Steam/Roblox Quality Bloom)
         // ==========================================
-        function drawShape(x, y, r, shape, color, glow = true) {
+        function drawRenderShape(x, y, r, color, glow = true) {
             ctx.save();
             ctx.translate(x, y);
             ctx.fillStyle = color;
-            ctx.strokeStyle = color;
             if (glow) {
                 ctx.shadowColor = color;
-                ctx.shadowBlur = 18;
+                ctx.shadowBlur = 22;
             }
             ctx.beginPath();
-            if (shape === 'circle') {
-                ctx.arc(0, 0, r, 0, Math.PI * 2);
-            } else if (shape === 'square') {
-                ctx.rect(-r, -r, r * 2, r * 2);
-            } else if (shape === 'diamond') {
-                ctx.moveTo(0, -r * 1.2); ctx.lineTo(r * 1.2, 0); ctx.lineTo(0, r * 1.2); ctx.lineTo(-r * 1.2, 0); ctx.closePath();
-            } else if (shape === 'triangle') {
-                ctx.moveTo(0, -r * 1.2); ctx.lineTo(r * 1.1, r); ctx.lineTo(-r * 1.1, r); ctx.closePath();
-            } else {
-                for (let i = 0; i < 6; i++) {
-                    const a = (Math.PI / 3) * i;
-                    if (i === 0) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
-                    else ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
-                }
-                ctx.closePath();
-            }
+            ctx.arc(0, 0, r, 0, Math.PI * 2);
             ctx.fill();
             ctx.restore();
         }
 
-        function drawBackground() {
-            ctx.fillStyle = world.theme.bg;
+        function renderLoop() {
+            frame++;
+            ctx.fillStyle = universe.art.bg;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            if (world.theme.grid) {
-                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+            // Grid background
+            if (universe.art.grid) {
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
                 ctx.lineWidth = 1;
-                const step = 40;
-                const offset = (frame * world.speedMult) % step;
+                const step = 45;
+                const offset = (frame * universe.speedMult) % step;
                 for (let x = -offset; x < canvas.width; x += step) {
                     ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
                 }
@@ -597,53 +559,45 @@
                 }
             }
 
-            ctx.fillStyle = world.accentColor;
-            bgStars.forEach(s => {
+            // Starfield
+            ctx.fillStyle = universe.accentColor;
+            stars.forEach(s => {
                 s.x -= s.spd;
                 if (s.x < 0) s.x = canvas.width;
-                ctx.globalAlpha = 0.28;
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.globalAlpha = 0.35;
+                ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
             });
             ctx.globalAlpha = 1;
-        }
 
-        function updateAndDrawGame() {
-            frame++;
-            drawBackground();
-
+            // Particles
             for (let i = particles.length - 1; i >= 0; i--) {
                 const p = particles[i];
-                p.x += p.vx;
-                p.y += p.vy;
-                p.life -= 0.03;
+                p.x += p.vx; p.y += p.vy; p.life -= 0.025;
                 if (p.life <= 0) { particles.splice(i, 1); continue; }
                 ctx.globalAlpha = p.life;
                 ctx.fillStyle = p.color;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
             }
             ctx.globalAlpha = 1;
 
             if (gameState !== 'PLAYING') {
-                const cx = 400 + Math.cos(frame * 0.02) * 80;
-                const cy = 250 + Math.sin(frame * 0.03) * 40;
-                drawShape(cx, cy, 26, world.theme.shape, world.accentColor, true);
-                requestAnimationFrame(updateAndDrawGame);
+                const cx = 450 + Math.cos(frame * 0.02) * 100;
+                const cy = 280 + Math.sin(frame * 0.03) * 50;
+                drawRenderShape(cx, cy, 30, universe.accentColor, true);
+                requestAnimationFrame(renderLoop);
                 return;
             }
 
-            const g = world.genre.id;
+            const g = universe.genre.id;
 
-            if (g === 'GRAVITY_RUNNER') {
-                const floorY = 380;
-                ctx.strokeStyle = world.accentColor;
-                ctx.lineWidth = 2;
+            // --- GENRE 1: NEO RUNNER ---
+            if (g === 'NEO_RUNNER') {
+                const floorY = 460;
+                ctx.strokeStyle = universe.accentColor;
+                ctx.lineWidth = 3;
                 ctx.beginPath(); ctx.moveTo(0, floorY); ctx.lineTo(canvas.width, floorY); ctx.stroke();
 
-                player.vy += 0.68 * world.gravityMult;
+                player.vy += 0.72 * universe.gravityMult;
                 player.y += player.vy;
                 if (player.y >= floorY - player.r) {
                     player.y = floorY - player.r;
@@ -651,246 +605,229 @@
                     player.grounded = true;
                 }
 
-                player.trail.push({ x: player.x, y: player.y });
-                if (player.trail.length > 12) player.trail.shift();
-                player.trail.forEach((t, idx) => {
-                    ctx.globalAlpha = (idx / 12) * 0.35;
-                    drawShape(t.x - (12 - idx) * 4, t.y, player.r * 0.8, world.theme.shape, world.accentColor, false);
-                });
-                ctx.globalAlpha = 1;
-                drawShape(player.x, player.y, player.r, world.theme.shape, world.accentColor, true);
+                drawRenderShape(player.x, player.y, player.r, universe.accentColor, true);
 
-                if (frame % Math.max(38, Math.floor(75 / world.speedMult)) === 0) {
-                    entities.push({ x: canvas.width + 30, y: floorY - 18, r: 16 + (frame % 12) });
+                if (frame % Math.max(35, Math.floor(70 / universe.speedMult)) === 0) {
+                    entities.push({ x: canvas.width + 40, y: floorY - 20, r: 18 + (frame % 15) });
                 }
+
                 for (let i = entities.length - 1; i >= 0; i--) {
                     const e = entities[i];
-                    e.x -= 6.5 * world.speedMult;
-                    drawShape(e.x, e.y, e.r, 'triangle', world.secondaryColor, true);
-                    if (Math.hypot(player.x - e.x, player.y - e.y) < player.r + e.r - 4) {
-                        spawnExplosion(player.x, player.y, world.secondaryColor, 25);
+                    e.x -= 7 * universe.speedMult;
+                    drawRenderShape(e.x, e.y, e.r, universe.secondaryColor, true);
+
+                    if (Math.hypot(player.x - e.x, player.y - e.y) < player.r + e.r - 6) {
+                        createExplosion(player.x, player.y, universe.secondaryColor, 30);
                         endGame();
-                    } else if (e.x < -30) {
+                    } else if (e.x < -40) {
                         entities.splice(i, 1);
                         score += 10;
                         document.getElementById('hud-score').innerText = score;
                     }
                 }
             }
-            else if (g === 'ORBIT_DODGER') {
-                const cx = 400, cy = 250;
-                player.radius += (player.targetRadius - player.radius) * 0.18;
-                player.angle += 0.045 * world.speedMult * (player.dir || 1);
+            // --- GENRE 2: GRAVITY ORBIT ---
+            else if (g === 'GRAVITY_ORBIT') {
+                const cx = 450, cy = 280;
+                player.radius += (player.targetRadius - player.radius) * 0.2;
+                player.angle += 0.05 * universe.speedMult * player.dir;
 
                 ctx.strokeStyle = 'rgba(255,255,255,0.1)';
-                ctx.beginPath(); ctx.arc(cx, cy, 68, 0, Math.PI * 2); ctx.stroke();
-                ctx.beginPath(); ctx.arc(cx, cy, 135, 0, Math.PI * 2); ctx.stroke();
+                ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.arc(cx, cy, 75, 0, Math.PI * 2); ctx.stroke();
+                ctx.beginPath(); ctx.arc(cx, cy, 145, 0, Math.PI * 2); ctx.stroke();
 
-                drawShape(cx, cy, 22, world.theme.shape, world.secondaryColor, true);
+                drawRenderShape(cx, cy, 25, universe.secondaryColor, true);
 
                 const px = cx + Math.cos(player.angle) * player.radius;
                 const py = cy + Math.sin(player.angle) * player.radius;
-                drawShape(px, py, player.r, 'circle', world.accentColor, true);
+                drawRenderShape(px, py, player.r, universe.accentColor, true);
 
-                if (frame % Math.max(32, Math.floor(60 / world.speedMult)) === 0) {
+                if (frame % Math.max(30, Math.floor(55 / universe.speedMult)) === 0) {
                     const a = Math.random() * Math.PI * 2;
-                    const isOrb = Math.random() > 0.45;
-                    const rad = Math.random() > 0.5 ? 68 : 135;
+                    const isCore = Math.random() > 0.4;
                     entities.push({
-                        x: cx + Math.cos(a) * rad,
-                        y: cy + Math.sin(a) * rad,
-                        isOrb, life: 180
+                        x: cx + Math.cos(a) * (isCore ? 75 : 145),
+                        y: cy + Math.sin(a) * (isCore ? 75 : 145),
+                        isCore, life: 180
                     });
                 }
 
                 for (let i = entities.length - 1; i >= 0; i--) {
                     const e = entities[i];
                     e.life--;
-                    drawShape(e.x, e.y, e.isOrb ? 10 : 13, e.isOrb ? 'circle' : 'diamond', e.isOrb ? '#38bdf8' : world.secondaryColor, true);
-                    if (Math.hypot(px - e.x, py - e.y) < player.r + 11) {
-                        if (e.isOrb) {
+                    drawRenderShape(e.x, e.y, e.isCore ? 12 : 14, e.isCore ? '#38bdf8' : universe.secondaryColor, true);
+
+                    if (Math.hypot(px - e.x, py - e.y) < player.r + 12) {
+                        if (e.isCore) {
                             score += 15;
                             document.getElementById('hud-score').innerText = score;
-                            spawnExplosion(e.x, e.y, '#38bdf8', 12);
+                            createExplosion(e.x, e.y, '#38bdf8', 15);
                             playNote(score);
                             entities.splice(i, 1);
                         } else {
-                            spawnExplosion(px, py, world.secondaryColor, 25);
+                            createExplosion(px, py, universe.secondaryColor, 30);
                             endGame();
                         }
-                    } else if (e.life <= 0) {
-                        entities.splice(i, 1);
-                    }
+                    } else if (e.life <= 0) entities.splice(i, 1);
                 }
             }
-            else if (g === 'WAVE_SURFER') {
-                player.vy += (isPointerDown ? -0.55 : 0.55) * world.gravityMult;
-                player.vy *= 0.94;
+            // --- GENRE 3: MATRIX SURF ---
+            else if (g === 'MATRIX_SURF') {
+                player.vy += (isPointerDown ? -0.6 : 0.6) * universe.gravityMult;
+                player.vy *= 0.93;
                 player.y += player.vy;
 
-                player.trail.push({ x: player.x, y: player.y });
-                if (player.trail.length > 25) player.trail.shift();
+                drawRenderShape(player.x, player.y, player.r, universe.accentColor, true);
+                if (player.y < 20 || player.y > canvas.height - 20) endGame();
 
-                ctx.strokeStyle = world.accentColor;
-                ctx.lineWidth = 4;
-                ctx.beginPath();
-                player.trail.forEach((pt, idx) => {
-                    const tx = pt.x - (player.trail.length - idx) * 5;
-                    if (idx === 0) ctx.moveTo(tx, pt.y);
-                    else ctx.lineTo(tx, pt.y);
-                });
-                ctx.stroke();
-
-                drawShape(player.x, player.y, player.r, world.theme.shape, world.accentColor, true);
-
-                if (player.y < 15 || player.y > canvas.height - 15) endGame();
-
-                if (frame % Math.max(28, Math.floor(55 / world.speedMult)) === 0) {
-                    const gapY = 100 + Math.random() * 300;
-                    entities.push({ x: canvas.width + 30, gapY, gapH: 135, passed: false });
+                if (frame % Math.max(30, Math.floor(55 / universe.speedMult)) === 0) {
+                    const gapY = 120 + Math.random() * 320;
+                    entities.push({ x: canvas.width + 40, gapY, gapH: 140, passed: false });
                 }
 
                 for (let i = entities.length - 1; i >= 0; i--) {
                     const e = entities[i];
-                    e.x -= 5.5 * world.speedMult;
-                    ctx.fillStyle = world.secondaryColor;
-                    ctx.fillRect(e.x - 14, 0, 28, e.gapY - e.gapH / 2);
-                    ctx.fillRect(e.x - 14, e.gapY + e.gapH / 2, 28, canvas.height);
+                    e.x -= 6 * universe.speedMult;
+                    ctx.fillStyle = universe.secondaryColor;
+                    ctx.fillRect(e.x - 16, 0, 32, e.gapY - e.gapH / 2);
+                    ctx.fillRect(e.x - 16, e.gapY + e.gapH / 2, 32, canvas.height);
 
-                    if (Math.abs(player.x - e.x) < 14 + player.r &&
+                    if (Math.abs(player.x - e.x) < 16 + player.r &&
                         (player.y - player.r < e.gapY - e.gapH / 2 || player.y + player.r > e.gapY + e.gapH / 2)) {
-                        spawnExplosion(player.x, player.y, world.secondaryColor, 25);
+                        createExplosion(player.x, player.y, universe.secondaryColor, 30);
                         endGame();
                     }
                     if (!e.passed && e.x < player.x) {
-                        e.passed = true;
-                        score += 10;
+                        e.passed = true; score += 10;
                         document.getElementById('hud-score').innerText = score;
                         playNote(score);
                     }
-                    if (e.x < -40) entities.splice(i, 1);
+                    if (e.x < -50) entities.splice(i, 1);
                 }
             }
-            else if (g === 'STAR_SHOOTER') {
-                player.pulse *= 0.9;
-                drawShape(player.x, player.y, player.r + player.pulse * 8, world.theme.shape, world.accentColor, true);
+            // --- GENRE 4: HYPER DEFENDER ---
+            else if (g === 'HYPER_DEFENDER') {
+                player.pulse *= 0.88;
+                drawRenderShape(player.x, player.y, player.r + player.pulse * 10, universe.accentColor, true);
 
                 for (let i = player.bullets.length - 1; i >= 0; i--) {
                     const b = player.bullets[i];
                     b.x += b.vx; b.y += b.vy;
-                    drawShape(b.x, b.y, 5, 'circle', '#ffffff', true);
+                    drawRenderShape(b.x, b.y, 6, '#ffffff', true);
                     if (b.x < 0 || b.x > canvas.width || b.y < 0 || b.y > canvas.height) player.bullets.splice(i, 1);
                 }
 
-                if (frame % Math.max(25, Math.floor(55 / world.speedMult)) === 0) {
+                if (frame % Math.max(25, Math.floor(50 / universe.speedMult)) === 0) {
                     const angle = Math.random() * Math.PI * 2;
                     entities.push({
-                        x: 400 + Math.cos(angle) * 460,
-                        y: 250 + Math.sin(angle) * 460,
-                        spd: (1.6 + Math.random() * 1.2) * world.speedMult
+                        x: 450 + Math.cos(angle) * 520,
+                        y: 280 + Math.sin(angle) * 520,
+                        spd: (1.8 + Math.random() * 1.2) * universe.speedMult
                     });
                 }
 
                 for (let i = entities.length - 1; i >= 0; i--) {
                     const e = entities[i];
                     const a = Math.atan2(player.y - e.y, player.x - e.x);
-                    e.x += Math.cos(a) * e.spd;
-                    e.y += Math.sin(a) * e.spd;
-                    drawShape(e.x, e.y, 15, 'diamond', world.secondaryColor, true);
+                    e.x += Math.cos(a) * e.spd; e.y += Math.sin(a) * e.spd;
+                    drawRenderShape(e.x, e.y, 16, universe.secondaryColor, true);
 
-                    if (Math.hypot(e.x - player.x, e.y - player.y) < player.r + 12) {
-                        spawnExplosion(player.x, player.y, world.secondaryColor, 30);
+                    if (Math.hypot(e.x - player.x, e.y - player.y) < player.r + 14) {
+                        createExplosion(player.x, player.y, universe.secondaryColor, 35);
                         endGame();
                     }
 
                     for (let j = player.bullets.length - 1; j >= 0; j--) {
                         const b = player.bullets[j];
-                        if (Math.hypot(e.x - b.x, e.y - b.y) < 20) {
-                            spawnExplosion(e.x, e.y, world.accentColor, 14);
-                            entities.splice(i, 1);
-                            player.bullets.splice(j, 1);
-                            score += 10;
-                            document.getElementById('hud-score').innerText = score;
-                            playNote(score);
-                            break;
+                        if (Math.hypot(e.x - b.x, e.y - b.y) < 22) {
+                            createExplosion(e.x, e.y, universe.accentColor, 16);
+                            entities.splice(i, 1); player.bullets.splice(j, 1);
+                            score += 10; document.getElementById('hud-score').innerText = score;
+                            playNote(score); break;
                         }
                     }
                 }
             }
-            else if (g === 'TIME_BREAKER') {
-                const cx = 400, cy = 250;
-                player.angle += player.speed * (player.dir || 1);
+            // --- GENRE 5: CHRONO SLASH ---
+            else if (g === 'CHRONO_SLASH') {
+                const cx = 450, cy = 280;
+                player.angle += player.speed * player.dir;
 
-                ctx.strokeStyle = 'rgba(255,255,255,0.12)';
-                ctx.lineWidth = 8;
+                ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+                ctx.lineWidth = 10;
                 ctx.beginPath(); ctx.arc(cx, cy, player.radius, 0, Math.PI * 2); ctx.stroke();
 
-                ctx.strokeStyle = world.secondaryColor;
-                ctx.lineWidth = 14;
+                ctx.strokeStyle = universe.secondaryColor;
+                ctx.lineWidth = 16;
                 ctx.beginPath();
-                ctx.arc(cx, cy, player.radius, player.targetAngle - 0.25, player.targetAngle + 0.25);
+                ctx.arc(cx, cy, player.radius, player.targetAngle - 0.28, player.targetAngle + 0.28);
                 ctx.stroke();
 
                 const px = cx + Math.cos(player.angle) * player.radius;
                 const py = cy + Math.sin(player.angle) * player.radius;
-                drawShape(px, py, 16, world.theme.shape, world.accentColor, true);
+                drawRenderShape(px, py, 18, universe.accentColor, true);
 
-                ctx.fillStyle = '#fff';
-                ctx.font = 'bold 20px "JetBrains Mono"';
-                ctx.textAlign = 'center';
-                ctx.fillText(`COMBO x${player.combo}`, cx, cy + 7);
+                ctx.fillStyle = '#fff'; ctx.font = 'bold 22px "JetBrains Mono"';
+                ctx.textAlign = 'center'; ctx.fillText(`COMBO x${player.combo}`, cx, cy + 8);
             }
 
-            requestAnimationFrame(updateAndDrawGame);
+            requestAnimationFrame(renderLoop);
         }
 
         // ==========================================
-        // 6. NAVIGATION & INITIALIZATION
+        // 6. ROUTING & CONTROLS
         // ==========================================
-        function loadWorld(seed) {
+        function loadUniverse(seed) {
             gameState = 'IDLE';
-            world = buildWorldFromSeed(seed);
-            initBackgroundParticles();
+            universe = buildUniverse(seed);
+            initStars();
             document.getElementById('overlay-screen').classList.remove('opacity-0', 'pointer-events-none');
         }
 
         function loadFromInput() {
             const val = parseInt(document.getElementById('seed-input').value, 10);
-            if (!isNaN(val)) loadWorld(val);
+            if (!isNaN(val)) loadUniverse(val);
         }
 
-        function stepWorld(delta) {
+        function stepUniverse(delta) {
             let next = currentSeed + delta;
-            if (next < 1) next = MAX_WORLDS;
-            if (next > MAX_WORLDS) next = 1;
-            loadWorld(next);
+            if (next < 1) next = MAX_UNIVERSES;
+            if (next > MAX_UNIVERSES) next = 1;
+            loadUniverse(next);
         }
 
-        function generateRandomWorld() {
-            const randSeed = Math.floor(Math.random() * MAX_WORLDS) + 1;
-            loadWorld(randSeed);
+        function jumpRandomUniverse() {
+            const rand = Math.floor(Math.random() * MAX_UNIVERSES) + 1;
+            loadUniverse(rand);
         }
 
-        function shareCurrentWorld() {
+        function shareUniverse() {
             navigator.clipboard?.writeText(window.location.href);
             const lbl = document.getElementById('share-label');
-            lbl.innerText = `World #${currentSeed.toLocaleString()} のURLをコピーしました！`;
-            setTimeout(() => { lbl.innerText = 'このゲームのURLをコピー'; }, 2500);
+            lbl.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400">宇宙 #${currentSeed.toLocaleString()} のURLをコピーしました！</span>`;
+            setTimeout(() => {
+                lbl.innerHTML = `<i data-lucide="share-2" class="w-3.5 h-3.5"></i><span>この宇宙の個別URLをコピー</span>`;
+                lucide.createIcons();
+            }, 2500);
         }
 
-        const presets = [1, 777, 42069, 128500, 999999, 3141592, 7777777, 10000000];
-        const chipContainer = document.getElementById('preset-chips');
-        presets.forEach(s => {
+        // Preset Discovery Chips
+        const famousSeeds = [1, 777, 42069, 128500, 999999, 3141592, 7777777, 10000000];
+        const chipBox = document.getElementById('preset-chips');
+        famousSeeds.forEach(s => {
             const btn = document.createElement('button');
-            btn.className = 'mono text-[11px] px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 transition';
+            btn.className = 'mono text-[11px] px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 transition font-bold text-slate-300';
             btn.innerText = `#${s.toLocaleString()}`;
-            btn.onclick = () => loadWorld(s);
-            chipContainer.appendChild(btn);
+            btn.onclick = () => loadUniverse(s);
+            chipBox.appendChild(btn);
         });
 
-        const hashMatch = window.location.hash.match(/world-(\d+)/);
-        loadWorld(hashMatch ? parseInt(hashMatch[1], 10) : 1);
-        updateAndDrawGame();
+        // Parse ?world=N query parameter for independent routing
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryWorld = parseInt(urlParams.get('world'), 10);
+        loadUniverse(!isNaN(queryWorld) ? queryWorld : 1);
+        renderLoop();
     </script>
 </body>
 </html>
